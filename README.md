@@ -18,7 +18,7 @@ npm i @mertsolak/custom-event
 ## Usage
 
 ```typescript
-import { on, off, once, trigger, broadcast, response, request } from '@mertsolak/custom-event';
+import { on, off, once, trigger, broadcast, respond, request } from '@mertsolak/custom-event';
 
 const handleUsernameChange = (data) => console.log(data);
 
@@ -35,6 +35,6 @@ off('username-change', handleUsernameChange);
 once('username-change', handleUsernameChange);
 trigger('username-change', { username });
 request('user-name-provider', { id: userId }, 'user-name', handleUsernameChange); // request only one time
-response('user-name', 'user-name-provider', dataHandler); // response only one time.
+respond('user-name', 'user-name-provider', dataHandler); // respond only one time.
 broadcast('user-name', 'user-name-provider', dataHandler);
 ```

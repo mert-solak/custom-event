@@ -28,7 +28,7 @@ const request = (to: EventName, body: Data, listenFrom: EventName, listener: Lis
   trigger(to, body);
 };
 
-const response = (to: EventName, listenFrom: EventName, dataHandler: DataHandler) => {
+const respond = (to: EventName, listenFrom: EventName, dataHandler: DataHandler) => {
   once(listenFrom, (body: Data) => {
     const data = dataHandler(body);
     trigger(to, data);
@@ -42,4 +42,4 @@ const broadcast = (to: EventName, listenFrom: EventName, dataHandler: DataHandle
   });
 };
 
-export { on, once, off, trigger, request, response, broadcast };
+export { on, once, off, trigger, request, respond, broadcast };
